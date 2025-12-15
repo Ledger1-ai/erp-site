@@ -68,7 +68,7 @@ export function Navbar() {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
           <Image
-            src="/erplogowide.png"
+            src="/l1logows.png"
             alt="Ledger1"
             width={120}
             height={40}
@@ -89,7 +89,7 @@ export function Navbar() {
               {s.label}
             </Link>
           ))}
-          
+
           {/* Industries Link */}
           <Link
             href="/industries"
@@ -97,7 +97,7 @@ export function Navbar() {
           >
             Industries
           </Link>
-          
+
           <span
             ref={indicatorRef}
             className="absolute -bottom-[11px] h-[2px] bg-gradient-to-r from-primary to-primary/70 rounded-full transition-transform duration-300 ease-out"
@@ -149,7 +149,7 @@ export function Navbar() {
                 {s.label}
               </Link>
             ))}
-            
+
             {/* Mobile Industries Link */}
             <Link
               href="/industries"

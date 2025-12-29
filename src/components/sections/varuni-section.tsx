@@ -8,7 +8,7 @@ export function VaruniSection() {
       <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <div className="inline-flex items-center rounded-full bg-primary/10 px-4 py-2 text-sm text-primary mb-4">
+          <div className="inline-flex items-center rounded-full-button-frame bg-primary/10 px-4 py-2 text-sm text-primary mb-4">
             🤖 Varuni • AI Operations Agent
           </div>
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">

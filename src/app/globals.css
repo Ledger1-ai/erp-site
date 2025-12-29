@@ -163,3 +163,6 @@
 }
 .animate-gradient-drift { animation: gradient-drift 30s ease-in-out infinite; }
 
+.rounded-full-button-frame {
+  border-radius: 10px;
+}

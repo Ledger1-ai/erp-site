@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { Footer } from "@/components/layout/footer";
 
 export const metadata: Metadata = {
-  title: "Help Center – Ledger1 (Coming Soon)",
-  description: "Guides and troubleshooting for Ledger1. Coming soon.",
-  alternates: { canonical: "https://ledger1.ai/help" },
+  title: "Help Center – BasaltHQ (Coming Soon)",
+  description: "Guides and troubleshooting for BasaltHQ. Coming soon.",
+  alternates: { canonical: "https://basalthq.com/help" },
 };
 
 export default function HelpPage() {

@@ -63,16 +63,16 @@ export function Navbar() {
       className="sticky top-0 z-40 w-full backdrop-blur-sm supports-[backdrop-filter]:bg-background/60 border-b border-border/50"
       style={{ paddingTop: 'env(safe-area-inset-top)' }}
     >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
 
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
           <Image
-            src="/l1logows.png"
-            alt="Ledger1"
+            src="/BasaltERPWide.png"
+            alt="BasaltERP"
             width={120}
             height={40}
-            className="h-8 w-auto"
+            className="h-14 w-auto"
             priority
           />
         </Link>
@@ -111,13 +111,13 @@ export function Navbar() {
           <Link
             href="#features"
             onClick={(e) => { e.preventDefault(); window.dispatchEvent(new CustomEvent("open-demo-video")); }}
-            className="inline-flex items-center gap-2 rounded-lg border border-primary/20 bg-card px-4 py-2 text-sm font-medium hover:bg-primary/5 transition-colors"
+            className="inline-flex items-center gap-2 rounded-full-button-frame border border-primary/20 bg-card px-4 py-2 text-sm font-medium hover:bg-primary/5 transition-colors"
           >
             Watch Demo
           </Link>
           <a
             href="https://calendly.com/founders-tuc/ledger1-info-session" target="_blank" rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-primary to-primary/80 px-6 py-2 text-sm font-semibold text-primary-foreground shadow hover:shadow-lg transition-all duration-300 hover:scale-105"
+            className="inline-flex items-center gap-2 rounded-full-button-frame bg-gradient-to-r from-primary to-primary/80 px-6 py-2 text-sm font-semibold text-primary-foreground shadow hover:shadow-lg transition-all duration-300 hover:scale-105"
           >
             Book a Call
           </a>
@@ -128,7 +128,7 @@ export function Navbar() {
           <ThemeToggle />
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="p-2 rounded-lg hover:bg-muted transition-colors"
+            className="p-2 rounded-full-button-frame hover:bg-muted transition-colors"
           >
             {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>

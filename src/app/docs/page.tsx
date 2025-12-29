@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { Footer } from "@/components/layout/footer";
 
 export const metadata: Metadata = {
-  title: "Documentation – Ledger1",
+  title: "Documentation – BasaltERP",
   description: "Product documentation and API references. User guide and API docs coming soon.",
-  alternates: { canonical: "https://ledger1.ai/docs" },
+  alternates: { canonical: "https://erp.basalthq.com/docs" },
 };
 
 export default function DocsPage() {

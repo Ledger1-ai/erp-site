@@ -25,11 +25,11 @@ export function Footer() {
           <div className="space-y-4">
             <Link href="/" className="flex items-center gap-3">
               <Image
-                src="/l1logows.png"
-                alt="Ledger1"
+                src="/BasaltERPWide.png"
+                alt="BasaltERP"
                 width={120}
                 height={40}
-                className="h-8 w-auto"
+                className="h-12 w-auto"
                 priority
               />
             </Link>
@@ -38,10 +38,10 @@ export function Footer() {
               optimizes resources, and maximizes profitability for businesses worldwide.
             </p>
             <div className="flex space-x-4">
-              <a href="https://x.com/The_Utility_Co" className="text-muted-foreground hover:text-primary transition-colors">
+              <a href="https://x.com/BasaltHQ" className="text-muted-foreground hover:text-primary transition-colors">
                 <Twitter className="h-5 w-5" />
               </a>
-              <a href="https://www.linkedin.com/company/the-utility-company/" className="text-muted-foreground hover:text-primary transition-colors">
+              <a href="https://www.linkedin.com/company/basalthq/" className="text-muted-foreground hover:text-primary transition-colors">
                 <Linkedin className="h-5 w-5" />
               </a>
               <a href="https://www.facebook.com/profile.php?id=100083624105531" className="text-muted-foreground hover:text-primary transition-colors">
@@ -100,8 +100,8 @@ export function Footer() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm text-muted-foreground">
             <div className="flex items-center gap-2">
               <Mail className="h-4 w-4"/>
-              <a href="mailto:info@theutilitycompany.co" className="hover:text-primary transition-colors">
-                info@theutilitycompany.co
+              <a href="mailto:info@basalthq.com" className="hover:text-primary transition-colors">
+                info@basalthq.com
               </a>
             </div>
             {/* <div className="flex items-center gap-2">
@@ -121,7 +121,7 @@ export function Footer() {
         <div className="py-6 border-t border-border/50">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
             <div className="flex items-center gap-6">
-              <p>© {currentYear} Ledger1. All rights reserved.</p>
+              <p>© {currentYear} BasaltHQ. All rights reserved.</p>
               <div className="hidden md:flex items-center gap-4">
                 <a href="/status" className="hover:text-primary transition-colors">System Status</a>
                 <a href="/changelog" className="hover:text-primary transition-colors">Changelog</a>

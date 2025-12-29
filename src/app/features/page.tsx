@@ -3,19 +3,19 @@ import { FeaturesShowcase } from "@/components/sections/features-showcase";
 import { Footer } from "@/components/layout/footer";
 
 export const metadata: Metadata = {
-  title: "Features – Ledger1",
-  description: "Explore Ledger1's modular, AI-assisted ERP features: Varuni AI agent, industry packs, enterprise access controls, operations analytics, scheduling, and integrations.",
-  alternates: { canonical: "https://ledger1.ai/features" },
+  title: "Features – BasaltERP",
+  description: "Explore BasaltERP's modular, AI-assisted ERP features: Varuni AI agent, industry packs, enterprise access controls, operations analytics, scheduling, and integrations.",
+  alternates: { canonical: "https://erp.basalthq.com/features" },
   openGraph: {
-    title: "Features – Ledger1",
-    description: "Explore Ledger1's modular, AI-assisted ERP features.",
-    url: "https://ledger1.ai/features",
+    title: "Features – BasaltERP",
+    description: "Explore BasaltERP's modular, AI-assisted ERP features.",
+    url: "https://erp.basalthq.com/features",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Features – Ledger1",
-    description: "Explore Ledger1's modular, AI-assisted backoffice features.",
+    title: "Features – BasaltERP",
+    description: "Explore BasaltERP's modular, AI-assisted backoffice features.",
   },
 };
 

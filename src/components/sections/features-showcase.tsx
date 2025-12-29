@@ -143,7 +143,7 @@ export function FeaturesShowcase() {
 
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center rounded-full bg-primary/10 px-4 py-2 text-sm text-primary mb-4">
+          <div className="inline-flex items-center rounded-full-button-frame bg-primary/10 px-4 py-2 text-sm text-primary mb-4">
             ✨ Modular Platform • AI-Built Workflows
           </div>
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6">

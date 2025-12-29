@@ -19,7 +19,7 @@ export function CTASection() {
 
         {/* Main CTA */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center rounded-full bg-white/10 backdrop-blur px-4 py-2 text-sm text-white mb-6">
+          <div className="inline-flex items-center rounded-full-button-frame bg-white/10 backdrop-blur px-4 py-2 text-sm text-white mb-6">
             🚀 Ready to Connect?
           </div>
           <h2 className="text-3xl md:text-6xl font-bold tracking-tight text-white mb-6">
@@ -28,7 +28,7 @@ export function CTASection() {
             <span className="text-white/90">Schedule your demo or talk to sales</span>
           </h2>
           <p className="text-lg md:text-xl text-white/80 max-w-3xl mx-auto mb-8">
-            We'll walk you through Ledger1 and Varuni—how we run ERPs across The Utility Co subsidiaries—and answer any questions.
+            We'll walk you through BasaltHQ and Varuni—how we run ERPs across The Utility Co subsidiaries—and answer any questions.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
@@ -67,8 +67,8 @@ export function CTASection() {
             </div>
             <h3 className="text-xl font-semibold text-white mb-2">Email Us</h3>
             <p className="text-white/80 mb-4">Get detailed information</p>
-            <a href="mailto:info@theutilitycompany.co" className="text-white hover:text-white/80 underline">
-              info@theutilitycompany.co
+            <a href="mailto:info@basalthq.com" className="text-white hover:text-white/80 underline">
+              info@basalthq.com
             </a>
           </div>
 

@@ -387,11 +387,11 @@ export function GraphHero() {
           {/* Left: Primary narrative */}
           <div className="lg:col-span-7 flex flex-col gap-4 lg:gap-6">
             {/* Eyebrow microchip */}
-            <div className="inline-flex self-start items-center rounded-full backdrop-blur-sm bg-primary/15 border border-primary/25 px-3 py-1 shadow-sm">
+            <div className="inline-flex self-start items-center rounded-full-button-frame backdrop-blur-sm bg-primary/15 border border-primary/25 px-3 py-1 shadow-sm">
               <span className="micro-kicker text-[hsl(171_65%_40%)] dark:text-primary">✦ Powered by Advanced AI Technology</span>
             </div>
             {false && activeSlide === 2 && slides[activeSlide].badge && (
-              <div className="inline-flex self-start items-center rounded-full bg-primary/15 border border-primary/25 px-2.5 py-1 text-[10px] md:text-xs text-[hsl(171_65%_40%)]">
+              <div className="inline-flex self-start items-center rounded-full-button-frame bg-primary/15 border border-primary/25 px-2.5 py-1 text-[10px] md:text-xs text-[hsl(171_65%_40%)]">
                 {slides[activeSlide].badge}
               </div>
             )}
@@ -510,7 +510,7 @@ export function GraphHero() {
                   >
                     {item.soon && (
                       <div className="mb-1 text-right">
-                        <span className="micro-label bg-primary/10 px-2 py-0.5 rounded-full inline-block">Coming Soon</span>
+                        <span className="micro-label bg-primary/10 px-2 py-0.5 rounded-full-button-frame inline-block">Coming Soon</span>
                       </div>
                     )}
                     <div className="micro-label mb-1">{item.eyebrow}</div>

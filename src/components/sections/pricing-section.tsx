@@ -122,7 +122,7 @@ export function PricingSection() {
 
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center rounded-full bg-primary/10 px-4 py-2 text-sm text-primary mb-4">
+          <div className="inline-flex items-center rounded-full-button-frame bg-primary/10 px-4 py-2 text-sm text-primary mb-4">
             💰 Simple, Transparent Pricing
           </div>
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6">
@@ -138,12 +138,12 @@ export function PricingSection() {
             {industries.map(ind => (
               <div key={ind.key} className="relative">
                 {ind.soon && (
-                  <span className="absolute -top-2 -right-2 micro-label bg-primary/10 px-2 py-0.5 rounded-full z-10 pointer-events-none">Soon</span>
+                  <span className="absolute -top-2 -right-2 micro-label bg-primary/10 px-2 py-0.5 rounded-full-button-frame z-10 pointer-events-none">Soon</span>
                 )}
                 <button
                   disabled={!ind.active}
                   onClick={() => ind.active && setSelectedIndustry(ind.key)}
-                  className={`px-3 py-1.5 rounded-full text-sm font-medium border transition-all ${
+                  className={`px-3 py-1.5 rounded-full-button-frame text-sm font-medium border transition-all ${
                     ind.key === selectedIndustry
                       ? 'bg-primary text-primary-foreground border-primary'
                       : ind.active
@@ -238,7 +238,7 @@ export function PricingSection() {
         {/* Sales CTA Banner */}
         <div className="glass-pane rounded-2xl p-8 mb-16 text-center bg-gradient-to-r from-primary/5 to-primary/10">
           <div className="max-w-3xl mx-auto">
-            <div className="inline-flex items-center gap-2 bg-primary/20 px-4 py-2 rounded-full text-primary text-sm font-medium mb-4">
+            <div className="inline-flex items-center gap-2 bg-primary/20 px-4 py-2 rounded-full-button-frame text-primary text-sm font-medium mb-4">
               <Zap className="h-4 w-4" />
               Talk to our team
             </div>
@@ -259,7 +259,7 @@ export function PricingSection() {
 
         {/* Tokenization Package */}
         <div className="text-center mt-16">
-          <div className="inline-flex items-center rounded-full bg-primary/10 px-4 py-2 text-sm text-primary mb-4">
+          <div className="inline-flex items-center rounded-full-button-frame bg-primary/10 px-4 py-2 text-sm text-primary mb-4">
             <Bitcoin className="h-4 w-4 mr-2" />
             Advanced Solutions
           </div>

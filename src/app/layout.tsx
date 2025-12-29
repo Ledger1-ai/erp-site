@@ -16,9 +16,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Ledger1 – AI-Assisted Universal ERP Platform",
+  title: "BasaltERP – AI-Assisted Universal ERP Platform",
   description: "Modular, AI-assisted ERP for any industry. Pre-built industry packs plus on-demand AI module builder. Start with Restaurants, Hospitality, Child-Care, Self-Storage, Retail, or Cannabis.",
-  applicationName: "Ledger1",
+  applicationName: "BasaltERP",
   keywords: [
     "universal ERP platform",
     "AI ERP",
@@ -33,9 +33,9 @@ export const metadata: Metadata = {
     "child-care ERP",
     "cannabis ERP"
   ],
-  authors: [{ name: "Ledger1 Team" }],
-  creator: "Ledger1",
-  publisher: "Ledger1",
+  authors: [{ name: "BasaltHQ Team" }],
+  creator: "BasaltHQ",
+  publisher: "BasaltHQ",
   formatDetection: {
     email: false,
     address: false,
@@ -52,15 +52,15 @@ export const metadata: Metadata = {
     shortcut: ["/l1logows.png"]
   },
   manifest: "/manifest.webmanifest",
-  metadataBase: new URL("https://ledger1.ai"),
+  metadataBase: new URL("https://basalthq.com"),
   alternates: {
-    canonical: "https://ledger1.ai",
+    canonical: "https://basalthq.com",
   },
   openGraph: {
-    title: "Ledger1 – AI-Assisted Universal ERP Platform",
+    title: "BasaltERP – AI-Assisted Universal ERP Platform",
     description: "Modular, AI-assisted ERP for any industry with pre-built packs and an on-demand AI module builder.",
-    url: "https://ledger1.ai",
-    siteName: "Ledger1",
+    url: "https://erp.basalthq.com",
+    siteName: "BasaltERP",
     type: "website",
     locale: "en_US",
     images: [
@@ -68,16 +68,16 @@ export const metadata: Metadata = {
         url: "https://engram1.blob.core.windows.net/varuni/socialbanner.png",
         width: 1536,
         height: 1024,
-        alt: "Ledger1 ERP",
+        alt: "BasaltERP",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ledger1 – AI-Assisted Universal ERP",
+    title: "BasaltERP – AI-Assisted Universal ERP",
     description: "Modular ERP for any industry with AI-built modules on demand.",
     images: ["https://engram1.blob.core.windows.net/varuni/socialbanner.png"],
-    creator: "@ledger1_ai",
+    creator: "@basalthq",
   },
   robots: {
     index: true,
@@ -105,9 +105,9 @@ export default function RootLayout({
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    "name": "Ledger1",
+    "name": "BasaltERP",
     "description": "AI-assisted universal ERP platform with modular industry packs and an on-demand AI module builder",
-    "url": "https://ledger1.ai",
+    "url": "https://erp.basalthq.com",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Web",
     "offers": {
@@ -119,8 +119,8 @@ export default function RootLayout({
     },
     "creator": {
       "@type": "Organization",
-      "name": "Ledger1",
-      "url": "https://ledger1.ai"
+      "name": "BasaltHQ",
+      "url": "https://erp.basalthq.com"
     },
     "featureList": [
       "AI-assisted module builder (create/modify modules, panels, modals)",

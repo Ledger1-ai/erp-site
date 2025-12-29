@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { Footer } from "@/components/layout/footer";
 
 export const metadata: Metadata = {
-  title: "Careers – Ledger1",
-  description: "Join Ledger1 to build the AI-assisted universal ERP platform.",
-  alternates: { canonical: "https://ledger1.ai/careers" },
+  title: "Careers – BasaltHQ",
+  description: "Join BasaltHQ to build the AI-assisted universal ERP platform.",
+  alternates: { canonical: "https://basalthq.com/careers" },
 };
 
 export default function CareersPage() {

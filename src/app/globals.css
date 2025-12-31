@@ -355,8 +355,15 @@
 .shield-gleam-container {
   position: absolute;
   inset: 0;
-  border-radius: 9999px;
   overflow: hidden;
+  -webkit-mask-image: url('/CRM-ERP-CMS.png');
+  mask-image: url('/CRM-ERP-CMS.png');
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
 }
 
 .shield-gleam-container::after {
@@ -366,7 +373,7 @@
   left: 0;
   bottom: 0;
   right: 0;
-  background: linear-gradient(90deg, transparent, rgba(6, 182, 212, 0.4), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
   transform: translateX(-150%) skewX(-20deg);
   animation: gleam 4s infinite;
 }

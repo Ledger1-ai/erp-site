@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { Navbar } from "@/components/layout/navbar";
 import { DemoVideoProvider } from "@/components/providers/demo-video-provider";
+import BasaltFooter from "@/components/basalt-theme/BasaltFooter";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -43,7 +44,7 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.png", sizes: "any" },
       { url: "/l1logows.png", type: "image/png", sizes: "512x512" }
     ],
     apple: [
@@ -90,10 +91,6 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  verification: {
-    google: "your-google-site-verification-code",
-    yandex: "your-yandex-verification-code",
-  },
   category: "enterprise resource planning software",
 };
 
@@ -130,13 +127,7 @@ export default function RootLayout({
       "Integrations and automation",
       "Enterprise-grade reliability"
     ],
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.9",
-      "ratingCount": "500",
-      "bestRating": "5",
-      "worstRating": "1"
-    }
+
   };
 
   return (
@@ -152,13 +143,14 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+        <link rel="stylesheet" href="https://use.typekit.net/eur3bvn.css" />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground`}>
         <ThemeProvider>
           <DemoVideoProvider>
-            <div className="app-accent-bg animate-gradient-drift" />
             <Navbar />
             <main className="relative z-10">{children}</main>
+            <BasaltFooter />
           </DemoVideoProvider>
         </ThemeProvider>
       </body>

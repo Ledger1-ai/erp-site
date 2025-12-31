@@ -4,7 +4,7 @@ import {
   Star,
   TrendingUp,
   Users,
-  Award,
+
   Clock,
   DollarSign,
   ChefHat,
@@ -43,7 +43,7 @@ const testimonials = [
 
 const stats = [
   {
-    value: "500+",
+    value: "15+",
     label: "Restaurants Trust Varuni",
     icon: Building2,
     description: "Across 15+ countries"
@@ -87,7 +87,7 @@ export function SocialProof() {
             🏆 Trusted by Industry Leaders
           </div>
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6">
-            Join <span className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">500+</span> Successful Restaurants
+            Join <span className="text-primary">15+</span> Successful Restaurants
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
             See how restaurants like yours are transforming operations and boosting profitability with Varuni.
@@ -139,21 +139,7 @@ export function SocialProof() {
           ))}
         </div>
 
-        {/* Awards & Recognition */}
-        <div className="text-center">
-          <h3 className="text-2xl font-bold mb-8">Awards & Recognition</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {awards.map((award, index) => (
-              <div key={index} className="glass-pane rounded-lg p-6 text-center">
-                <div className="inline-flex p-3 rounded-lg bg-gradient-to-r from-yellow-400 to-orange-500 mb-4">
-                  <Award className="h-6 w-6 text-white" />
-                </div>
-                <h4 className="font-semibold mb-2">{award.name}</h4>
-                <p className="text-sm text-muted-foreground">{award.issuer}</p>
-              </div>
-            ))}
-          </div>
-        </div>
+
 
         {/* Trust Indicators */}
         <div className="mt-16 text-center">

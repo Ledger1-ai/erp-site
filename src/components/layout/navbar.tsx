@@ -1,182 +1,155 @@
-"use client";
+'use client';
 
-import Link from "next/link";
-import Image from "next/image";
-import { ThemeToggle } from "@/components/ui/theme-toggle";
-import { Brain, Menu, X, ChevronDown } from "lucide-react";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useState, useEffect, useMemo } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import { ThemeToggle } from "@/components/ui/theme-toggle"; // Keeping ThemeToggle integration
 
-export function Navbar() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const sections = useMemo(() => {
-    const showCaseStudies = process.env.NEXT_PUBLIC_ENABLE_CASE_STUDIES === 'true';
-    const showAbout = process.env.NEXT_PUBLIC_ENABLE_ABOUT !== 'false';
-    const showContact = process.env.NEXT_PUBLIC_ENABLE_CONTACT !== 'false';
-    const result: Array<{ id: string; label: string }> = [
-      { id: "features", label: "Features" },
-      { id: "pricing", label: "Pricing" },
-    ];
-    if (showCaseStudies) result.push({ id: "case-studies", label: "Case Studies" });
-    if (showAbout) result.push({ id: "about", label: "About" });
-    if (showContact) result.push({ id: "contact", label: "Contact" });
-    return result;
+const navLinks = [
+  { label: 'FEATURES', href: '/features' },
+  { label: 'SOLUTIONS', href: '/solutions' },
+  { label: 'PRICING', href: '/pricing' },
+];
+
+interface NavbarProps {
+  themeColor?: string;
+}
+
+export function Navbar({ themeColor = '#06b6d4' }: NavbarProps) {
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [time, setTime] = useState('');
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+
+    const tick = () => {
+      setTime(new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }));
+    };
+    tick();
+    const interval = setInterval(tick, 1000);
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      clearInterval(interval);
+    };
   }, []);
 
-  const [activeId, setActiveId] = useState<string>("features");
-  const indicatorRef = useRef<HTMLSpanElement | null>(null);
-  const navRef = useRef<HTMLDivElement | null>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        const id = entry.target.getAttribute('id');
-        if (!id) return;
-        if (entry.isIntersecting) {
-          setActiveId(id);
-        }
-      });
-    }, { rootMargin: "-40% 0px -55% 0px", threshold: [0, 0.25, 0.5, 0.75, 1] });
-
-    sections.forEach(s => {
-      const el = document.getElementById(s.id);
-      if (el) observer.observe(el);
-    });
-    return () => observer.disconnect();
-  }, [sections]);
-
-  useEffect(() => {
-    const nav = navRef.current;
-    const ind = indicatorRef.current;
-    if (!nav || !ind) return;
-    const activeLink = nav.querySelector<HTMLAnchorElement>(`a[data-section="${activeId}"]`);
-    if (!activeLink) return;
-    const linkRect = activeLink.getBoundingClientRect();
-    const navRect = nav.getBoundingClientRect();
-    const left = linkRect.left - navRect.left;
-    const width = linkRect.width;
-    ind.style.transform = `translateX(${left}px)`;
-    ind.style.width = `${width}px`;
-  }, [activeId, isMenuOpen]);
-
   return (
-    <header
-      className="sticky top-0 z-40 w-full backdrop-blur-sm supports-[backdrop-filter]:bg-background/60 border-b border-border/50"
-      style={{ paddingTop: 'env(safe-area-inset-top)' }}
-    >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
-          <Image
-            src="/BasaltERPWide.png"
-            alt="BasaltERP"
-            width={120}
-            height={40}
-            className="h-14 w-auto"
-            priority
-          />
-        </Link>
-
-        {/* Desktop Navigation */}
-        <nav ref={navRef} className="relative hidden md:flex items-center gap-8 text-sm font-medium">
-          {sections.map((s) => (
-            <Link
-              key={s.id}
-              href={`#${s.id}`}
-              data-section={s.id}
-              className={`transition-colors ${activeId === s.id ? 'text-primary' : 'hover:text-primary'}`}
-            >
-              {s.label}
+    <>
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out ${scrolled
+          ? 'bg-black/60 backdrop-blur-2xl border-b shadow-[0_4px_30px_rgba(0,0,0,0.1)] py-3'
+          : 'py-5 bg-transparent'
+          }`}
+        style={scrolled
+          ? { borderBottomColor: `${themeColor}30`, boxShadow: `0 4px 30px ${themeColor}10` }
+          : { borderBottomColor: 'transparent', paddingTop: 'max(1.25rem, env(safe-area-inset-top))' }}
+      >
+        <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+          {/* Logo & System Status */}
+          <div className="flex items-center gap-6">
+            <Link href="/" className="flex items-center gap-3 group">
+              <div className="relative w-10 h-10 transform group-hover:scale-110 transition-transform duration-300">
+                <Image
+                  src="/CRM-ERP-CMS.png"
+                  alt="Basalt Shield"
+                  fill
+                  className="object-contain"
+                  priority
+                />
+                <div className="shield-gleam-container" />
+              </div>
+              <div className="flex flex-col">
+                <span className="hidden md:block text-[10px] font-mono tracking-widest opacity-80 transition-colors" style={{ color: themeColor }}>
+                  STATUS.ONLINE
+                </span>
+                <span className="text-lg text-white tracking-widest group-hover:opacity-80 transition-opacity" style={{ fontFamily: '"vox", sans-serif' }}>
+                  <span style={{ fontWeight: 300 }}>BASALT</span><span style={{ fontWeight: 700 }}>ERP</span>
+                </span>
+              </div>
             </Link>
-          ))}
 
-          {/* Industries Link */}
-          <Link
-            href="/industries"
-            className="transition-colors hover:text-primary"
-          >
-            Industries
-          </Link>
-
-          <span
-            ref={indicatorRef}
-            className="absolute -bottom-[11px] h-[2px] bg-gradient-to-r from-primary to-primary/70 rounded-full transition-transform duration-300 ease-out"
-            style={{ width: 0, transform: 'translateX(0px)' }}
-          />
-        </nav>
-
-        {/* Desktop CTA */}
-        <div className="hidden md:flex items-center gap-3">
-          <ThemeToggle />
-          <Link
-            href="#features"
-            onClick={(e) => { e.preventDefault(); window.dispatchEvent(new CustomEvent("open-demo-video")); }}
-            className="inline-flex items-center gap-2 rounded-full-button-frame border border-primary/20 bg-card px-4 py-2 text-sm font-medium hover:bg-primary/5 transition-colors"
-          >
-            Watch Demo
-          </Link>
-          <a
-            href="https://calendly.com/founders-tuc/ledger1-info-session" target="_blank" rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full-button-frame bg-gradient-to-r from-primary to-primary/80 px-6 py-2 text-sm font-semibold text-primary-foreground shadow hover:shadow-lg transition-all duration-300 hover:scale-105"
-          >
-            Book a Call
-          </a>
-        </div>
-
-        {/* Mobile Menu Button */}
-        <div className="md:hidden flex items-center gap-2">
-          <ThemeToggle />
-          <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="p-2 rounded-full-button-frame hover:bg-muted transition-colors"
-          >
-            {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile Navigation */}
-      {isMenuOpen && (
-        <div className="md:hidden border-t border-border/50 bg-background/95 backdrop-blur">
-          <nav className="px-4 py-6 space-y-4">
-            {sections.map(s => (
-              <Link
-                key={s.id}
-                href={`#${s.id}`}
-                className="block py-2 text-sm font-medium hover:text-primary transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {s.label}
-              </Link>
-            ))}
-
-            {/* Mobile Industries Link */}
-            <Link
-              href="/industries"
-              className="block py-2 text-sm font-medium hover:text-primary transition-colors"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Industries
-            </Link>
-            <div className="pt-4 border-t border-border/50 space-y-3">
-              <Link
-                href="#features"
-                className="block w-full text-center rounded-lg border border-primary/20 bg-card px-4 py-3 text-sm font-medium hover:bg-primary/5 transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Watch Demo
-              </Link>
-              <a
-                href="https://calendly.com/founders-tuc/ledger1-info-session" target="_blank" rel="noopener noreferrer"
-                className="block w-full text-center rounded-lg bg-gradient-to-r from-primary to-primary/80 px-4 py-3 text-sm font-semibold text-primary-foreground shadow hover:shadow-lg transition-all duration-300"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Book a Call
-              </a>
+            {/* Desktop Navigation */}
+            <div className="hidden lg:flex items-center gap-1">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  className="px-4 py-2 text-xs font-mono tracking-wider text-gray-400 hover:text-white hover:bg-white/5 rounded-[10px] transition-all duration-200"
+                >
+                  {link.label}
+                </Link>
+              ))}
             </div>
-          </nav>
+          </div>
+
+          {/* Right Side */}
+          <div className="flex items-center gap-4">
+            {/* Time Display */}
+            <div className="hidden md:block text-xs font-mono tracking-wider" style={{ color: themeColor }}>
+              {time}
+            </div>
+
+            <ThemeToggle />
+
+            {/* CTA Button */}
+            <a
+              href="https://calendly.com/founders-tuc/ledger1-info-session" target="_blank" rel="noopener noreferrer"
+              className="text-xs font-mono tracking-wider px-6 py-3 rounded-[10px] bg-white text-black font-bold hover:opacity-90 transition-opacity"
+              style={{ backgroundColor: themeColor, color: '#000' }}
+            >
+              BOOK CALL
+            </a>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="lg:hidden p-2 text-white transition-colors"
+              style={{ color: mobileMenuOpen ? themeColor : 'white' }}
+            >
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                {mobileMenuOpen ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                )}
+              </svg>
+            </button>
+          </div>
         </div>
-      )}
-    </header>
+
+        {/* Mobile Menu */}
+        {mobileMenuOpen && (
+          <div className="lg:hidden bg-black/80 backdrop-blur-xl mt-2 mx-4 rounded-2xl p-4 animate-fadeInUp border" style={{ borderColor: `${themeColor}40` }}>
+            <div className="flex flex-col gap-2">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="px-4 py-3 text-sm font-mono tracking-wider text-gray-300 hover:text-white hover:bg-white/5 rounded-lg transition-all"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
+      </header>
+
+      {/* HUD Decorative Lines */}
+      <div className="fixed top-20 left-0 right-0 pointer-events-none z-40 opacity-50">
+        <div className="absolute h-px bg-gradient-to-r from-transparent via-current to-transparent w-full" style={{ color: themeColor }} />
+      </div>
+    </>
   );
 }

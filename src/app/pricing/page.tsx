@@ -1,38 +1,31 @@
-import type { Metadata } from "next";
 import { PricingSection } from "@/components/sections/pricing-section";
-import { Footer } from "@/components/layout/footer";
+import { CTASection } from "@/components/sections/cta-section";
 
-export const metadata: Metadata = {
-  title: "Pricing – BasaltERP",
-  description: "Simple, transparent pricing for BasaltERP. Starter, Pro, and Scale plans with optional add-ons and enterprise options.",
-  alternates: { canonical: "https://erp.basalthq.com/pricing" },
-  openGraph: {
-    title: "Pricing – BasaltERP",
-    description: "Simple, transparent pricing for BasaltERP.",
-    url: "https://erp.basalthq.com/pricing",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Pricing – BasaltERP",
-    description: "Simple, transparent pricing for BasaltERP.",
-  },
+
+export const metadata = {
+  title: "Pricing | BasaltERP",
+  description: "Transparent pricing with no hidden fees. Choose the plan that fits your business scale.",
 };
 
 export default function PricingPage() {
   return (
-    <div className="min-h-screen">
-      <section className="relative py-20 bg-gradient-to-b from-background to-muted/20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center rounded-full bg-primary/10 px-4 py-2 text-sm text-primary mb-4">Plans</div>
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-4">Pricing</h1>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">Choose a plan that fits your operations today and scales with you tomorrow.</p>
+    <div className="min-h-screen bg-background">
+      <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-tr from-primary/5 via-background to-background">
+        <div className="mx-auto max-w-7xl text-center">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
+            Simple, Transparent <span className="text-primary">Pricing</span>
+          </h1>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            No shelfware, no hidden implementation fees. Pay for value, not complexity.
+          </p>
         </div>
       </section>
+
       <PricingSection />
-      <Footer />
+
+      <CTASection />
+
+
     </div>
   );
 }
-
-
